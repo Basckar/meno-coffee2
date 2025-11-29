@@ -115,25 +115,14 @@ body {
 }
 .tabs::-webkit-scrollbar { display: none; }
 .tabs::before,
-.tabs::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 40px;
-  height: 100%;
-  pointer-events: none;
-}
-.tabs::before {
-  right: 0;
-  background: linear-gradient(to left, #fff, transparent);
-}
+ 
 .tabs::after {
   left: 0;
   background: linear-gradient(to right, #fff, transparent);
 }
 .tab {
   flex: 0 0 auto;
-  min-width: 120px;
+  min-width: 37%;
   display: inline-flex;
   align-items: center;
   gap: .5rem;
