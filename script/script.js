@@ -1,191 +1,113 @@
-// INTRO
-var introTL = gsap.timeline();
-introTL.to(".intro", .1, {fontFamily: "Anton"})
-introTL.to(".intro", .1, {fontFamily: "Jost"})
-introTL.to(".intro", .1, {fontFamily: "Alkatra"})
-introTL.to(".intro", .1, {fontFamily: "Nova Oval"})
-introTL.to(".intro", .1, {fontFamily: "Oswald"})
-introTL.to(".intro", .1, {fontFamily: "PT Serif"})
-introTL.to(".intro", .1, {fontFamily: "Lexend"})
-introTL.to(".intro", .1, {fontFamily: "Poppins"})
-introTL.to(".intro", .1, {fontFamily: "Titillium Web"})
-introTL.to(".intro", 1, {scaleY: 0, ease:"expo.inOut"})
-introTL.to(".intro__red", 1, {scaleY: 2, ease:"expo.inOut"}, "-=1.25")
-
-/*down-to-up*/
-document.addEventListener("DOMContentLoaded", function() {
-    const animateElements = document.querySelectorAll('.down-to-up');
-
-    const options = {
-        root: null, // viewport
-        rootMargin: '0px',
-        threshold: 0.1 // 10% از المان باید در نمای کاربر باشد
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            } else {
-                entry.target.classList.remove('visible');
-            }
-        });
-    }, options);
-
-    animateElements.forEach(element => observer.observe(element));
-});
-
-/*left-to-right*/
-document.addEventListener("DOMContentLoaded", function() {
-    const animateElements = document.querySelectorAll('.left-to-right');
-
-    const options = {
-        root: null, // viewport
-        rootMargin: '0px',
-        threshold: 0.1 // 10% از المان باید در نمای کاربر باشد
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            } else {
-                entry.target.classList.remove('visible');
-            }
-        });
-    }, options);
-
-    animateElements.forEach(element => observer.observe(element));
-});
- 
-/*fade-in-out__popup*/
-document.addEventListener("DOMContentLoaded", function() {
-    const animateMe = document.querySelector('.fade-in-out__popup');
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            } else {
-                entry.target.classList.remove('visible');
-            }
+"use strict";
+// خروج از لودینگ و نمایش صفحه، با انیمیشن ورود آیتم‌ها
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    const splash = document.getElementById("splash");
+    // اجرای انیمیشن خروج
+    splash.style.animation = "splash-out .8s ease forwards";
+    // بعد از پایان انیمیشن، مخفی کن
+    splash.addEventListener("animationend", () => {
+      splash.style.display = "none";
+      // افکت ورود آیتم‌های تب فعال
+      document
+        .querySelectorAll(".food-list.active .food-item")
+        .forEach((item, i) => {
+          setTimeout(() => item.classList.add("show"), i * 140);
         });
     });
-
-    observer.observe(animateMe);
+  }, 1200); // زمان نمایش اولیه لودینگ
+});
+// مدیریت تب‌ها مطابق data-tab و idها
+document.querySelectorAll(".tab").forEach((tab) => {
+  tab.addEventListener("click", () => {
+    const target = tab.dataset.tab;
+    document
+      .querySelectorAll(".tab")
+      .forEach((t) => t.classList.toggle("active", t === tab));
+    document.querySelectorAll(".food-list").forEach((list) => {
+      const active = list.id === target;
+      list.classList.toggle("active", active);
+      if (active) {
+        // افکت ورود ترتیبی
+        list.querySelectorAll(".food-item").forEach((item, i) => {
+          item.classList.remove("show");
+          setTimeout(() => item.classList.add("show"), i * 140);
+        });
+      }
+    });
+  });
 });
 
-/*new*/
+// پاپ‌آپ عمومی: محتوا از کارت انتخاب‌شده می‌آید
+const overlay = document.getElementById("overlay");
+const popup = document.getElementById("popup");
+const popupBody = document.getElementById("popup-body");
 
-
-$(document).ready(function () {
-    $('.tabs').slick({
-        infinite: false,
-        slidesToShow: 6,
-        slidesToScroll: 3,
-        rtl: true,
-        responsive: [
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 4,
-                    slidesToScroll: 3
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3
-                }
-            }
-        ]
-    });
-
-    const tabs = document.querySelectorAll('.tab');
-    const foodLists = document.querySelectorAll('.food-list');
-    const searchInput = document.getElementById('search');
-
-    tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            tabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-
-            foodLists.forEach(list => list.classList.remove('active'));
-            document.getElementById(tab.dataset.tab).classList.add('active');
-        });
-    });
-
-    searchInput.addEventListener('input', () => {
-        const query = searchInput.value.toLowerCase();
-        foodLists.forEach(list => {
-            list.classList.remove('active');
-            const items = list.querySelectorAll('.food-item');
-            let found = false;
-            items.forEach(item => {
-                if (item.innerText.toLowerCase().includes(query)) {
-                    item.style.display = 'flex';
-                    found = true;
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-            if (found) {
-                list.classList.add('active');
-            }
-        });
-    });
-});
-
-
-
-
-
-/* */
-const popup = document.getElementById('popup');
-const overlay = document.getElementById('overlay');
-const popupBody = document.getElementById('popup-body');
-let currentItem = 0;
-let currentItemInList = 0;
-let currentList = [];
-
-// جلب کردن توجه همه آیتم‌های غذا در تمام تب‌ها
-const allFoodItems = document.querySelectorAll('.food-item');
-allFoodItems.forEach((item, index) => {
-    item.addEventListener('click', () => {
-        currentList = Array.from(item.parentElement.children).filter(child => child.classList.contains('food-item'));
-        currentItem = index;
-        currentList.forEach((item, index) => {
-            currentItemInList = index;
-        });
-        openPopup(allFoodItems[currentItem]);
-    });
-});
-
-function openPopup(item) {
-    popupBody.innerHTML = item.innerHTML;
-    popup.classList.add('active');
-    overlay.classList.add('active');
+function openPopup(contentHtml) {
+  popupBody.innerHTML = contentHtml;
+  overlay.classList.add("active");
+  popup.classList.add("active");
+  document.body.style.overflow = "hidden";
 }
-
 function closePopup() {
-    popup.classList.remove('active');
-    overlay.classList.remove('active');
+  overlay.classList.remove("active");
+  popup.classList.remove("active");
+  document.body.style.overflow = "";
+  popupBody.innerHTML = "";
 }
 
-function prevItem() {
-    if (currentItemInList > 0) {
-        currentItemInList--;
-        openPopup(currentList[currentItemInList]);
-    }
+// ساختن محتوای پاپ‌آپ مطابق دیزاین (نام، توضیح، امتیاز، گزینه‌های شیر، قیمت، سفارش)
+function buildPopupContent({
+  title,
+  desc,
+  imgSrc,
+  rating = "4.5",
+  price = "۱۴۰,۰۰۰",
+}) {
+  return `
+        <img class="popup-pic" src="${imgSrc}" alt="${title}"/>
+        <div class="popup-title">
+          <h3 id="popup-title">${title}</h3>
+          <div class="rating">
+            <span>${rating}</span>
+            <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M3.20607 8.28162L0.221995 5.4825C-0.157087 5.12694 -0.0386464 4.77547 0.485473 4.70245L4.60963 4.12577L6.45398 0.529876C6.68803 0.0729678 7.07172 0.0729678 7.30576 0.529876L9.15011 4.12577L13.2743 4.70245C13.7987 4.77547 13.9172 5.12694 13.5378 5.4825L10.5537 8.28162L11.2579 12.2341C11.3473 12.736 11.0374 12.9537 10.5682 12.7163L6.87987 10.8504L3.19153 12.7166C2.72238 12.9541 2.41245 12.7364 2.50181 12.2344L3.20607 8.28162Z" fill="#7A7A7A"/>
+            </svg>
+          </div>
+        </div>
+        <p class="popup-text">${desc}</p>
+        <h4 class="popup-subtitle">انتخاب شیر</h4>
+        <div class="popup-options">
+          <button class="popup-btn" type="button">شیر عادی</button>
+          <button class="popup-btn" type="button">شیر وانیل</button>
+          <button class="popup-btn" type="button">شیر فندق</button>
+        </div>
+        <div class="div-footer">
+          <button class="popup-order" type="button">سفارش</button>
+          <div>
+            <h4 class="popup-price">تومان</h4>
+            <p class="popup-amount">${price}</p>
+          </div>
+        </div>
+      `;
 }
 
-function nextItem() {
-    if (currentItemInList < currentList.length - 1) {
-        currentItemInList++;
-        openPopup(currentList[currentItemInList]);
-    }
-}
+// کلیک روی دکمه کارت برای باز کردن پاپ‌آپ
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".popup-footer_button");
+  if (btn) {
+    const card = btn.closest(".food-item");
+    const title =
+      card.querySelector(".food-item__title h3")?.textContent.trim() || "آیتم";
+    const desc =
+      card.querySelector(".food-item__title p")?.textContent.trim() || "";
+    const imgSrc =
+      card.querySelector(".food-item__pic")?.getAttribute("src") ||
+      "img/Product Image.png";
+    openPopup(buildPopupContent({ title, desc, imgSrc }));
+  }
+});
 
-overlay.addEventListener('click', closePopup);
-
+// بستن پاپ‌آپ
+document.querySelector(".closePopup").addEventListener("click", closePopup);
+overlay.addEventListener("click", closePopup);
