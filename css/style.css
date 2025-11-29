@@ -1,480 +1,191 @@
-@font-face {
+  /* ریست خیلی سبک */
+
+  @font-face {
   font-family: 'kalameh';
   src: url('../fonts/TTF/Kalameh-Medium.ttf');
 }
 *{
   font-family: 'kalameh';
+   box-sizing: border-box;
+  
 }
 body {
     font-family:'kalameh';
-    background-color: #fff;
-    color: #fff;
-    direction: rtl;
-    text-align: center;
+    margin: 0; font-family: "Segoe UI", system-ui; background: #f7f8f9; color: #212121; }
+
+    /* حالت لود (Splash) */
+#splash {
+  position: fixed; inset: 0; background: #121212; color: #fff;
+  display: grid; place-items: center; z-index: 9999;
+  animation: splash-in .6s ease both;
 }
-.flex,
-.flex__col {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#splash .logo { font-size: 2.2rem; letter-spacing: .5px; }
+#splash .logo span { opacity: .82; }
+
+@keyframes splash-in {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-.intro {
-    position: fixed;
-    z-index: 1000;
+
+/* انیمیشن خروج از پایین به بالا */
+@keyframes splash-out {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-100%); }
+}
+
+    /* هدر مطابق دیزاین (مینیمال، بدون طلایی) */
+    .header {
+     position: sticky;
+    display: flex; 
     top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: #000;
-    font-size: var(--fontSizeIntro);
-    transform-origin: top;
-}
-
-.intro__red {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 30%;
-    background-color: #ccdada;
-    border-radius: 50px 8px;
-    font-family: var(--font1);
-    font-size: 30vw;
-    font-weight: 900;
-    line-height: 30vh;
-    overflow: hidden;
-    color: transparent;
+    background: #fff; 
+    padding: 1rem;
     text-align: center;
-    -webkit-text-stroke: 1px #222;
-    transform: scaleY(0);
-    transform-origin: bottom;
-}
+    z-index: 50;
+    justify-content: space-between;
+    }
+    
+    .header h1 { margin: 0; font-size: 1.4rem; font-weight: 600; color: rgb(85, 85, 87); }
+    .header h1 .brand-secondary { color: #9f9f9f; font-weight: 500; }
 
-.intro__red div {
-    transform: scaleX(0.5) scaleY(1.5);
-    letter-spacing: -1vw;
-}
+    .header .food-item__btn .popup-footer_button{
+      background-color: #343339;
+    }
 
-.down-to-up {
-  opacity: 0; /* شروع با حالت محو */
-  transform: translateY(100px); /* شروع از پایین */
-  transition: opacity 1.5s ease, transform 5.5 ease; /* انیمیشن */
-}
-.down-to-up.visible {
-  opacity: 1; /* حالت نمایان */
-  transform: translateY(0); /* به موقعیت اصلی برمی‌گردد */
-}
- 
- 
-.left-to-right {
-  opacity: 0; /* شروع با حالت محو */
-  transform: translatex(-100px); /* شروع از پایین */
-  transition: opacity 1.5s ease, transform 3.5s ease; /* انیمیشن */
-}
-.left-to-right.visible {
-  opacity: 1; /* حالت نمایان */
-  transform: translatex(0); /* به موقعیت اصلی برمی‌گردد */
-}
-.fade-in-out__popup {
-  opacity: 0; /* شروع با حالت محو */
-  transform: scale(0.5);
-  transition: opacity 5.5s ease, transform 5.5s ease;
-}
-.fade-in-out__popup.visible {
-  opacity: 1; /* حالت نمایان */
-}
+    /* صفحه اصلی */
+    .container { padding: 1rem; max-width: 960px; margin: 0 auto; }
 
-:root {
-  --input-text-color: #fff;
-  --bg-color: linear-gradient(137deg, #38383de0, #000000ed);
-  --focus-input-bg-color: transparent;
-  --text-color: #ffffff;
-  --active-color: #F8D01A;
-  --width-of-input: 200px;
-  --inline-padding-of-input: 1.2em;
-  --gap: 0.9rem;
-}
-@keyframes slideInUp {
-  from {
-    transform: translateY(100%); /* شروع از پایین */
-    opacity: 0; /* شفافیت اولیه */
-  }
-  to {
-    transform: translateY(0); /* به موقعیت اصلی */
-    opacity: 1; /* شفافیت نهایی */
-  }
-}
-
-p{
-  margin: 0;
-}
-h5{
-  margin: 5px 0 0 0;
-}
-h3{
-  margin: 10px 0 10px 0;
-}
-h6{
-  margin-bottom: 0;
-}
-.container {
-    margin: auto;
-    overflow: hidden;
-}
-.header{
- display: flex;
- justify-content: space-around;
-}
-.header-btn{
-  background: var(--bg-color);
-  border: #000; 
-  width: 40px;
-  height: 50px;
-  padding: 4%;
-  border-radius: 10px;
-}
-.search-bar { 
-    justify-content: center;
-    margin: 20px 0;
-}
-.search-bar_text{
-  color: #877C74;
-  font-family: ui-rounded;
-  margin: 0 0 0px 20px;
-}
-.search-bar_span{
-  color: #403E3C;
+    /* سرچ‌بار مطابق متن دیزاین */
+   .search-container {
   position: relative;
-  top: 20px;
-  right: 45px;
-  font-family: ui-rounded;
-}
-/* From Uiverse.io by satyamchaudharydev */ 
-/* this is a recreation of twitter search in css */
-
-  /* form style */
-  .form {
-    font-size: 0.9rem;
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    position: relative;
-    left: 1rem;
-    isolation: isolate;
-  }
-  /* a fancy bg for showing background and border when focus. */
-  .fancy-bg {
-    position: absolute;
-    width: 100%;
-    inset: 0;
-    background: var(--bg-color);
-    border-radius: 10px;
-    height: 100%;
-    z-index: -1;
-    pointer-events: none;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  }
-  /* label styling */
-  label {
-    width: 100%;
-    padding: 0.8em;
-    height: 20px;
-    padding-inline: var(--inline-padding-of-input);
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-  }
-
-  /* styling search-icon */
-  .search {
-    fill: var(--text-color);
-    left: var(--inline-padding-of-input);
-    right: 3rem;
-    position: absolute;
-  }
-  /* svg -- size */
-  svg {
-    width: 17px;
-    display: block;
-  }
-  /* styling of input */
-  .input {
-    color: var(--input-text-color);
-    width: 100%;
-    margin-inline: min(2em,calc(var(--inline-padding-of-input) + var(--gap)));
-    background: none;
-    border: none;
-    text-align: center;
-  }
-  
-  .input:focus {
-    outline: none;
-  }
-  
-  .input::placeholder {
-    color: var(--text-color)
-  }
-  /* input background change in focus */
-  .input:focus ~ .fancy-bg {
-    border: 1px solid var(--active-color);
-    background: var(--focus-input-bg-color);
-  }
-  /* search icon color change in focus */
-  .input:focus ~ .search {
-    fill: var(--active-color);
-  }
-  /* showing close button when typing */
-  .input:valid ~ .close-btn {
-    opacity: 1;
-    visibility: visible;
-  }
-  /* this is for the default background in input,when selecting autofill options -- you can remove this code if you do not want to override the browser style.  */
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover,
-  input:-webkit-autofill:focus,
-  input:-webkit-autofill:active {
-    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
-    -webkit-transition-delay: 9999s;
-  }
-.tabs {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
-    animation: slideInUp 0.5s ease-in-out;
-}
-.tab {
-    position: relative;
-    padding: 10px 20px;
-    background-color: #fff;
-    color: #88888C;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 5px;
-    border-radius: 4rem;
-  
-}
-.tab.active {
-    background:var(--bg-color);
-}
- 
-.food-list{
-  display: none;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-  animation: slideInUp 0.5s ease-in-out;
-}
-.food-list.active{
-  display: block;
-  opacity: 1;
-}
-.main-box{
-  width: 90%;
-  margin: 0px auto;
-  height: 75px;
-  position: relative;
-  margin-bottom: 0.3rem;
-}
-.food-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: var(--bg-color);
-  padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-.food-item__pic {
-  width: 70px;
-  height: 80px; 
-  margin-top: 3px;
-}
-
-.food-item__title{
-  text-align: right;
-  font-size: 18px;
-  color: white;
-  margin-top: -15px;
-}
-.food-item__btn{
-  background: #fff;
-  width: 27px;
-  height: 25px;
-  padding: 2%;
-  border-radius: 10px;
-}
-.popup-footer_button{
-  background-color: transparent;
-  color: #000;
-  border: transparent;
-  font-size: 100%;
-  position: relative;
-  bottom: -0.2rem;
-}
-.div-popup{
-  display: none;
-}
-.div-body{
-  padding: 0 1rem;
-}
-.popup-pic{
-  width: 17rem;
-  height: 15rem;
-}
-.popup-title{
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 0.5rem;
-}
-.popup-text{
-  text-align: right;
-}
-.popup-btn {
-    padding: 10px 10px;
-    text-align: center;
-    text-decoration: none;
-    transition-duration: 0.4s;
-    cursor: pointer;
-    background-color: transparent;
-    color: #fff;
-    border: 2px solid #fff;
-    border-radius: 10px;
-}
-
-.popup-btn:hover {
-  background-color: #fff;
-  color: #000;
-}
-.div-footer{
-  /*margin-top: 5rem;*/
-  top: 2%;
-  position: relative;
-}
-.popup-order{
-  background-color: #fff;
-  color: #000;
-  padding: 10px 50px;
-  font-weight: bolder;
-}
-.popup-price{
-  margin: 0;
-  left: 25px;
-  position: relative;
-}
-.closePopup{
-  background: var(--bg-color);
-  color: white;
-  border: transparent;
-  border-radius: 50%;
-  width: 35px;
-  height: 35px;
-  font-size: 120%;
-  position: relative;
-  right: 13rem;
-  top: 4rem;
-}
- 
-.popup {
-  display: none;
-  position: fixed;
-  top: 47%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 20px;
-  border-radius: 5px;
-  z-index: 1000;
-  width: 80%;
-  height: 100%;
-  max-width: 400px;
-  text-align: center;
-}
-.popup.active {
-  display: block;
-}
-.popup-header, .popup-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-}
-.popup-body {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  display: flex;
-  justify-self: center;
-}
-
-.overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  background: rgba(15, 15, 15, 0.999);
-  z-index: 999;
 }
-.overlay.active {
-  display: block;
+
+.search-bar {
+  width: 100%;
+  padding: .75rem .9rem;
+  border: 1px solid #dcdcdc;
+  border-radius: 10px;
+  background: #343339;
+  font-size: .95rem;
+  outline: none;
+  color: #fff;
+  padding-right: 2.5rem; /* جا برای آیکن */
 }
-.popup-body div .food-item__pic {
-display: none;
+
+.search-bar::placeholder {
+  color: #9b9b9b;
 }
-.popup-body .food-item__title{
+
+.search-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9b9b9b;
+  pointer-events: none;
+}
+    /* تب‌ها: آیکون + عنوان، راست‌به‌چپ */
+    .tabs {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: .6rem; margin-top: 1rem;
+    }
+    .tab {
+      display: flex; align-items: center; gap: .5rem;
+        border-radius: 25px;    font-size: 85%;
+      padding: .6rem .7rem; cursor: pointer; transition: background .2s ease, border-color .2s ease;justify-content: center;
+    }
+    .tab img { width: 20px; height: 20px; }
+    .tab.active { background: #343339; color: #ffffff; }
+
+    /* لیست‌ها و آیتم‌ها */
+    .food-list { display: none; margin-top: 1rem; }
+    .food-list.active { display: grid; gap: .8rem; }
+
+    .food-item {
+      display: grid; grid-template-columns: 64px 1fr auto;
+      align-items: center; gap: .9rem; background: #343339; border: 1px solid #eaeaea;
+      border-radius: 12px; padding: .7rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,.03);
+      opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease;
+    }
+    .food-item.show { opacity: 1; transform: translateY(0); }
+
+    .food-item__pic { width: 64px; height: 64px; object-fit: cover; border-radius: 10px; }
+    .food-item__title h3 { margin: 0; font-size: 1rem; color: #ffffff; }
+    .food-item__title p { margin: .25rem 0 0; color: #a3a3a3; font-size: .85rem; }
+
+    .food-item__btn .popup-footer_button {
+      width: 34px; height: 34px; border-radius: 25%;
+      border: none; background: #e3e6eb; color: #2a2f37;
+      display: grid; place-items: center; font-size: 1.1rem; cursor: pointer;
+      transition: background .2s ease;
+    }
+    .food-item__btn .popup-footer_button:hover { background: #d6cdb4; }
+
+    /* Overlay + Popup مطابق ساختار خودت */
+    /* قبلاً پاپ‌آپ با top/left/translate بود، حالا داخل overlay با Flex مرکز میشه */
+.overlay {
+  position: fixed; inset: 0;
   display: none;
+  align-items: center; justify-content: center; /* مرکز عمودی و افقی */
+  background: rgba(0,0,0,.45);
+  z-index: 1000;
 }
-.popup-body .food-item__btn{
-  display: none;
+.overlay.active { display: flex; }
+
+.popup {
+  width: min(420px, 92vw);
+  max-height: 80vh;              /* جلوگیری از بیرون‌زدن در موبایل */
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 14px 38px rgba(0,0,0,.18);
+  overflow: auto;                /* محتوای بلند اسکرول داخلی می‌شود */
+  animation: popup-in .24s ease both;
 }
-.popup-body .div-popup{
-  display: block;
+@keyframes popup-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
+     
+    @keyframes overlay-in {
+      from { opacity: 0; } to { opacity: 1; }
+    }
+
+     
+    .popup.active { display: block; }
+     
+
+    .popup-header { display: flex; justify-content: flex-end; padding: .6rem .7rem; }
+    .closePopup { border: none; background: transparent; font-size: 1.6rem; line-height: 1; cursor: pointer; color: #333; }
+
+    .popup-body { padding: .2rem .9rem 1rem; }
+    .popup-pic { width: 100%; border-radius: 12px; margin-bottom: .7rem; }
+    .popup-title { display: flex; align-items: center; gap: .6rem; }
+    .popup-title h3 { margin: 0; font-size: 1.05rem; color: #222; flex: 1; }
+    .rating { display: inline-flex; align-items: center; gap: .25rem; color: #444; font-weight: 600; }
+    .rating svg { display: inline-block; }
+
+    .popup-text { margin: .6rem 0; color: #5a5a5a; font-size: .9rem; line-height: 1.7; }
+
+    .popup-subtitle { margin: .8rem 0 .4rem; font-size: .92rem; color: #303030; }
+
+    .popup-options { display: flex; gap: .4rem; flex-wrap: wrap; }
+    .popup-btn {
+      border: 1px solid #dcdcdc; background: #fafafa; color: #333;
+      border-radius: 10px; padding: .45rem .8rem; cursor: pointer;
+      transition: background .2s ease, border-color .2s ease;
+    }
+    .popup-btn:hover { background: #f0f2f5; border-color: #cfd3d8; }
+
+    .div-footer {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: .8rem; border-top: 1px solid #efefef; margin-top: .8rem;
+    }
+    .popup-order {
+      border: none; background: #2a2f37; color: #fff;
+      border-radius: 10px; padding: .55rem 1rem; cursor: pointer;
+    }
+    .popup-price { margin: 0; color: #5b5b5b; }
+    .popup-amount { margin: .2rem 0 0; font-size: 1.05rem; font-weight: 700; color: #1f1f1f; }
  
- 
-@media only screen and (min-width: 450px) {
-
-}
-@media only screen and (min-width: 430px) {
-  .closePopup{
-    right: 19rem;
-    height: 40px;
-    width: 40px;
-}
-.popup{
-  font-size: 155%;
-  width: 90%;
-}
-.popup-btn{
-  font-size: 27px;
-}
-.popup-pic{
-  width: 20rem;
-  height: 20rem;
-}
-.popup-text{
-  margin-top: 35px;
-}
-}
-@media only screen and (min-width: 390px) {
- .popup{
-  font-size: 130%;
- }
-.popup-btn {
-  font-size: 18px;
-}
-.popup-pic{
-  width: 20rem;
-  height: 20rem;
-}
-.closePopup{
-  right: 15rem;
-  height: 40px;
-  width: 40px;
-}
-}
-
-.slick-slide img {
-  display: inline; 
-}
-
-
-
