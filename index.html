@@ -1,880 +1,282 @@
- 
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منو رستوران</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css"/>
-    
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Baskar Café</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="script/script.js"></script>
 </head>
 <body>
-    <section class="intro flex">
-        <h2 class="search-bar_text">
-            Baskar
-            <span class="search-bar_span">Café</span>
+
+  <!-- حالت لود -->
+  <div id="splash">
+    <div class="logo">Baskar <span>Café</span></div>
+  </div>
+
+  <!-- هدر -->
+  <header class="header" aria-label="Baskar Café">
+    
+          <div class="food-item__btn">
+          <button class="popup-footer_button" type="button">
             
-        </h2>
-        <div class="intro__red flex">
-            <div>
-                
-            </div>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.7071 6.29289L16.3552 3.64477C16.7113 3.28867 17.2887 3.28867 17.6448 3.64477C19.57 5.56999 19.7866 8.61788 18.153 10.796L16.9714 12.3714C15.6638 14.115 14.115 15.6638 12.3714 16.9714L10.796 18.153C8.61788 19.7866 5.56999 19.57 3.64477 17.6448C3.28867 17.2887 3.28867 16.7113 3.64477 16.3552L6.29289 13.7071C6.68342 13.3166 7.31658 13.3166 7.70711 13.7071L8.72826 14.7283C8.89054 14.8905 9.13846 14.9308 9.34373 14.8281C11.7171 13.6415 13.6415 11.7171 14.8281 9.34373C14.9308 9.13846 14.8905 8.89054 14.7283 8.72826L13.7071 7.70711C13.3166 7.31658 13.3166 6.68342 13.7071 6.29289Z" stroke="#D6CDB4" stroke-width="2"/>
+</svg>
+
+          </button>
         </div>
-    </section>
-    <div class="container">
-      <div class="header">
-        <button type="button" class="header-btn">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16.5063 4.95952C15.0666 10.6147 10.6147 15.0666 4.95953 16.5063C2.81867 17.0513 1 15.2091 1 13V12C1 11.4477 1.44883 11.0053 1.99842 10.9508C2.92696 10.8587 3.81815 10.6397 4.65438 10.3112L6.17366 11.8305C8.6447 10.648 10.648 8.64471 11.8305 6.17367L10.3112 4.65438C10.6397 3.81816 10.8587 2.92696 10.9508 1.99842C11.0053 1.44883 11.4477 1 12 1H13C15.2091 1 17.0513 2.81867 16.5063 4.95952Z" stroke="#EFE3C8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-       </button>
-        <h2 class="search-bar_text down-to-up">
-            Baskar
-            <span class="search-bar_span">Café</span>
+    <h1>Baskar <span class="brand-secondary">Café</span></h1>
+    
+          <div class="food-item__btn">
+          <button class="popup-footer_button" type="button">
             
-        </h2>
-        <button type="button" class="header-btn">
-            <svg width="23" height="24" viewBox="0 0 23 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2.6355 3.6145L4.62883 3.9595L5.55171 14.9545C5.6255 15.8524 6.37587 16.5415 7.27671 16.5386H17.7312C18.5908 16.5405 19.3201 15.908 19.4418 15.057L20.3512 8.77225C20.4528 8.06979 19.965 7.41813 19.2635 7.31654C19.2022 7.30792 4.94891 7.30313 4.94891 7.30313" stroke="#EFE3C8" stroke-width="1.83473" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M13.5365 10.845H16.194" stroke="#EFE3C8" stroke-width="1.83473" stroke-linecap="round" stroke-linejoin="round"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.85617 19.8607C7.14463 19.8607 7.37751 20.0946 7.37751 20.3821C7.37751 20.6705 7.14463 20.9043 6.85617 20.9043C6.56771 20.9043 6.33484 20.6705 6.33484 20.3821C6.33484 20.0946 6.56771 19.8607 6.85617 19.8607Z" fill="#130F26" stroke="#EFE3C8" stroke-width="1.83473" stroke-linecap="round" stroke-linejoin="round"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M17.6666 19.8607C17.9551 19.8607 18.1889 20.0946 18.1889 20.3821C18.1889 20.6705 17.9551 20.9043 17.6666 20.9043C17.3781 20.9043 17.1453 20.6705 17.1453 20.3821C17.1453 20.0946 17.3781 19.8607 17.6666 19.8607Z" fill="#130F26" stroke="#EFE3C8" stroke-width="1.83473" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-       </button>
-      </div>  
-        <div class="search-bar">
-            
-            <form class="form">
-                <label for="search">
-                    <input class="input" type="text" required="" placeholder="جستجو آیتم مورد نظرتون ..." id="search">
-                    <div class="fancy-bg"></div>
-                    <div class="search">                  
-                        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd" d="M24.4207 21.3552L19.6963 16.6308C21.1593 14.4718 21.765 11.8449 21.3949 9.26326C21.0249 6.6816 19.7057 4.33062 17.6951 2.66952C15.6845 1.00843 13.1268 0.156538 10.5217 0.280258C7.91658 0.403977 5.45116 1.49442 3.607 3.33858C1.76283 5.18275 0.672395 7.64817 0.548675 10.2533C0.424955 12.8584 1.27684 15.416 2.93794 17.4267C4.59903 19.4373 6.95002 20.7565 9.53168 21.1265C12.1133 21.4966 14.7402 20.8909 16.8992 19.4278L21.6236 24.1523C21.9946 24.5232 22.4976 24.7315 23.0222 24.7315C23.5467 24.7315 24.0498 24.5232 24.4207 24.1523C24.7916 23.7814 25 23.2783 25 22.7537C25 22.2292 24.7916 21.7261 24.4207 21.3552ZM11.0162 17.7431C9.63187 17.7436 8.27849 17.3336 7.12725 16.5648C5.97601 15.7961 5.07864 14.7032 4.54863 13.4243C4.01863 12.1455 3.87982 10.7382 4.14975 9.38046C4.41968 8.02272 5.08624 6.77554 6.0651 5.79668C7.04395 4.81782 8.29113 4.15127 9.64887 3.88133C11.0066 3.6114 12.4139 3.75021 13.6927 4.28022C14.9716 4.81022 16.0645 5.7076 16.8332 6.85884C17.602 8.01007 18.012 9.36345 18.0115 10.7478C18.0115 12.603 17.2745 14.3823 15.9626 15.6942C14.6507 17.0061 12.8715 17.7431 11.0162 17.7431Z" fill="#EFE3C8"/>
-                        </svg>
-                    </div>
-                    
-                </label>
-            </form>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 19C9.32843 19 10 19.6716 10 20.5C10 21.3284 9.32843 22 8.5 22C7.67157 22 7 21.3284 7 20.5C7 19.6716 7.67157 19 8.5 19ZM17.5 19C18.3284 19 19 19.6716 19 20.5C19 21.3284 18.3284 22 17.5 22C16.6716 22 16 21.3284 16 20.5C16 19.6716 16.6716 19 17.5 19ZM3 2H5C5.4556 2 5.84831 2.30684 5.96506 2.73774L5.98837 2.84794L6.4733 6H21C21.5998 6 22.0549 6.52068 21.9951 7.10035L21.9762 7.21693L20.3242 14.6508C20.0325 15.9637 18.9059 16.9143 17.5779 16.9945L17.3957 17H8.71584C7.29435 17 6.07697 16.0044 5.78265 14.6299L5.75072 14.4562L4.14208 4H3C2.44772 4 2 3.55228 2 3C2 2.48716 2.38604 2.06449 2.88338 2.00673L3 2H5H3ZM19.7534 8H6.781L7.72747 14.1521C7.79674 14.6024 8.15973 14.9438 8.60337 14.9937L8.71584 15H17.3957C17.8253 15 18.2021 14.7265 18.3402 14.3285L18.3718 14.2169L19.7534 8Z" fill="#D6CDB4"/>
+</svg>
+          </button>
         </div>
-        <!--tabs-->
-        <div class="tabs left-to-right">
-            <div class="tab" data-tab="cake">
-                <img src="img/Corretto.png" alt="" width="20px">
-               چیز کیک
-            </div>
-            <div class="tab" data-tab="juice">
-                <img src="img/limo.png" alt="" width="20px">
-                آبمیوه طبیعی
-            </div>
-            <div class="tab" data-tab="shick">
-                <img src="img/Galao.png" alt="" width="20px">
-                شیک
-            </div>
-            <div class="tab active" data-tab="hot">
-                <img src="img/Lungo.png" alt="" width="20px">
-                نوشیدنی‌ گرم
-            </div>
-        </div>
-        <!---data tabs--->
-        <div class="food-list active down-to-up" id="hot">
-            <div class="main-box food-item">
-                <div>
-                    <img src="img/Rectangle 174.png" class="food-item__pic">
-                </div>     
-                <div class="food-item__title">
-                    <h3>آیس چاکلت</h3>
-                    <p style="font-size: 60%;">اسپرسو + آب + شیر + شکولات</p>
-                </div>
-                    
-                <div class=" food-item__btn">
-                 <button class="popup-footer_button">&#62;</button>
+  </header>
 
-                </div>
-                     
-                <div class="div-popup">
-                    <div class="div-header">
-                        <img class="popup-pic" src="img/Product Image.png" alt="">
-                    </div>
-                    <div class="div-body">
-                        <h3 class="popup-title">
-                            آیس لته شیر توت فرنگی
-                           <div class="popup-title">
-                            4.5
-                            <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3.20607 8.28162L0.221995 5.4825C-0.157087 5.12694 -0.0386464 4.77547 0.485473 4.70245L4.60963 4.12577L6.45398 0.529876C6.68803 0.0729678 7.07172 0.0729678 7.30576 0.529876L9.15011 4.12577L13.2743 4.70245C13.7987 4.77547 13.9172 5.12694 13.5378 5.4825L10.5537 8.28162L11.2579 12.2341C11.3473 12.736 11.0374 12.9537 10.5682 12.7163L6.87987 10.8504L3.19153 12.7166C2.72238 12.9541 2.41245 12.7364 2.50181 12.2344L3.20607 8.28162Z" fill="#D3A601"/>
-                            </svg>
-                           </div>  
-                        </h3>
-                        <p class="popup-text">این آیس لته ما با شیر و توت فرنگی تازه دماوند اماده شده و خیلی خوفه تست کن و لذت ببر :)</p>
-                        <h4 class="popup-text">انتخاب شیر </h4>
-                        <div class="popup-title">
-                            <button class="popup-btn">شیر فندق</button>
-                            <button class="popup-btn">شیر وانیل</button>
-                            <button class="popup-btn">شیر عادی</button>
-                        </div>
-                    </div>
-                    <div class="div-footer div-body popup-title">
-                        <div>
-                            <button class="popup-btn popup-order">سفارش</button>
-                        </div>
-                        <div>
-                           <h4 class="popup-price">تومان</h4> 
-                            <p>140,000</p>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="main-box food-item">
-                <div>
-                    <img src="img/Rectangle 174.png" class="food-item__pic">
-                </div>     
-                <div class="food-item__title">
-                    <h3>آیس چاکلت</h3>
-                    <p style="font-size: 60%;">اسپرسو + آب + شیر + شکولات</p>
-                </div>
-                    
-                <div class=" food-item__btn">
-                 <button class="popup-footer_button">&#62;</button>
-
-                </div>
-                     
-                <div class="div-popup">
-                    <div class="div-header">
-                        <img class="popup-pic" src="img/Product Image.png" alt="">
-                    </div>
-                    <div class="div-body">
-                        <h3 class="popup-title">
-                            آیس لته شیر توت فرنگی
-                           <div class="popup-title">
-                            4.5
-                            <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3.20607 8.28162L0.221995 5.4825C-0.157087 5.12694 -0.0386464 4.77547 0.485473 4.70245L4.60963 4.12577L6.45398 0.529876C6.68803 0.0729678 7.07172 0.0729678 7.30576 0.529876L9.15011 4.12577L13.2743 4.70245C13.7987 4.77547 13.9172 5.12694 13.5378 5.4825L10.5537 8.28162L11.2579 12.2341C11.3473 12.736 11.0374 12.9537 10.5682 12.7163L6.87987 10.8504L3.19153 12.7166C2.72238 12.9541 2.41245 12.7364 2.50181 12.2344L3.20607 8.28162Z" fill="#D3A601"/>
-                            </svg>
-                           </div>  
-                        </h3>
-                        <p class="popup-text">این آیس لته ما با شیر و توت فرنگی تازه دماوند اماده شده و خیلی خوفه تست کن و لذت ببر :)</p>
-                        <h4 class="popup-text">انتخاب شیر </h4>
-                        <div class="popup-title">
-                            <button class="popup-btn">شیر فندق</button>
-                            <button class="popup-btn">شیر وانیل</button>
-                            <button class="popup-btn">شیر عادی</button>
-                        </div>
-                    </div>
-                    <div class="div-footer div-body popup-title">
-                        <div>
-                            <button class="popup-btn popup-order">سفارش</button>
-                        </div>
-                        <div>
-                           <h4 class="popup-price">تومان</h4> 
-                            <p>140,000</p>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="main-box food-item">
-                <div>
-                    <img src="img/Rectangle 174.png" class="food-item__pic">
-                </div>     
-                <div class="food-item__title">
-                    <h3>آیس چاکلت</h3>
-                    <p style="font-size: 60%;">اسپرسو + آب + شیر + شکولات</p>
-                </div>
-                    
-                <div class=" food-item__btn">
-                 <button class="popup-footer_button">&#62;</button>
-
-                </div>
-                     
-                <div class="div-popup">
-                    <div class="div-header">
-                        <img class="popup-pic" src="img/Product Image.png" alt="">
-                    </div>
-                    <div class="div-body">
-                        <h3 class="popup-title">
-                            آیس لته شیر توت فرنگی
-                           <div class="popup-title">
-                            4.5
-                            <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3.20607 8.28162L0.221995 5.4825C-0.157087 5.12694 -0.0386464 4.77547 0.485473 4.70245L4.60963 4.12577L6.45398 0.529876C6.68803 0.0729678 7.07172 0.0729678 7.30576 0.529876L9.15011 4.12577L13.2743 4.70245C13.7987 4.77547 13.9172 5.12694 13.5378 5.4825L10.5537 8.28162L11.2579 12.2341C11.3473 12.736 11.0374 12.9537 10.5682 12.7163L6.87987 10.8504L3.19153 12.7166C2.72238 12.9541 2.41245 12.7364 2.50181 12.2344L3.20607 8.28162Z" fill="#D3A601"/>
-                            </svg>
-                           </div>  
-                        </h3>
-                        <p class="popup-text">این آیس لته ما با شیر و توت فرنگی تازه دماوند اماده شده و خیلی خوفه تست کن و لذت ببر :)</p>
-                        <h4 class="popup-text">انتخاب شیر </h4>
-                        <div class="popup-title">
-                            <button class="popup-btn">شیر فندق</button>
-                            <button class="popup-btn">شیر وانیل</button>
-                            <button class="popup-btn">شیر عادی</button>
-                        </div>
-                    </div>
-                    <div class="div-footer div-body popup-title">
-                        <div>
-                            <button class="popup-btn popup-order">سفارش</button>
-                        </div>
-                        <div>
-                           <h4 class="popup-price">تومان</h4> 
-                            <p>140,000</p>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="main-box food-item">
-                <div>
-                    <img src="img/Rectangle 174.png" class="food-item__pic">
-                </div>     
-                <div class="food-item__title">
-                    <h3>آیس چاکلت</h3>
-                    <p style="font-size: 60%;">اسپرسو + آب + شیر + شکولات</p>
-                </div>
-                    
-                <div class=" food-item__btn">
-                 <button class="popup-footer_button">&#62;</button>
-
-                </div>
-                     
-                <div class="div-popup">
-                    <div class="div-header">
-                        <img class="popup-pic" src="img/Product Image.png" alt="">
-                    </div>
-                    <div class="div-body">
-                        <h3 class="popup-title">
-                            آیس لته شیر توت فرنگی
-                           <div class="popup-title">
-                            4.5
-                            <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3.20607 8.28162L0.221995 5.4825C-0.157087 5.12694 -0.0386464 4.77547 0.485473 4.70245L4.60963 4.12577L6.45398 0.529876C6.68803 0.0729678 7.07172 0.0729678 7.30576 0.529876L9.15011 4.12577L13.2743 4.70245C13.7987 4.77547 13.9172 5.12694 13.5378 5.4825L10.5537 8.28162L11.2579 12.2341C11.3473 12.736 11.0374 12.9537 10.5682 12.7163L6.87987 10.8504L3.19153 12.7166C2.72238 12.9541 2.41245 12.7364 2.50181 12.2344L3.20607 8.28162Z" fill="#D3A601"/>
-                            </svg>
-                           </div>  
-                        </h3>
-                        <p class="popup-text">این آیس لته ما با شیر و توت فرنگی تازه دماوند اماده شده و خیلی خوفه تست کن و لذت ببر :)</p>
-                        <h4 class="popup-text">انتخاب شیر </h4>
-                        <div class="popup-title">
-                            <button class="popup-btn">شیر فندق</button>
-                            <button class="popup-btn">شیر وانیل</button>
-                            <button class="popup-btn">شیر عادی</button>
-                        </div>
-                    </div>
-                    <div class="div-footer div-body popup-title">
-                        <div>
-                            <button class="popup-btn popup-order">سفارش</button>
-                        </div>
-                        <div>
-                           <h4 class="popup-price">تومان</h4> 
-                            <p>140,000</p>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        <div class="food-list down-to-up" id="shick">
-            <div class="main-box food-item">
-                <div>
-                    <img src="img/Rectangle 174.png" class="food-item__pic">
-                </div>     
-                <div class="food-item__title">
-                    <h3>آیس چاکلت</h3>
-                    <p style="font-size: 60%;">اسپرسو + آب + شیر + شکولات</p>
-                </div>
-                    
-                <div class=" food-item__btn">
-                 <button class="popup-footer_button">&#62;</button>
-
-                </div>
-                     
-                <div class="div-popup">
-                    <div class="div-header">
-                        <img class="popup-pic" src="img/Product Image.png" alt="">
-                    </div>
-                    <div class="div-body">
-                        <h3 class="popup-title">
-                            آیس لته شیر توت فرنگی
-                           <div class="popup-title">
-                            4.5
-                            <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3.20607 8.28162L0.221995 5.4825C-0.157087 5.12694 -0.0386464 4.77547 0.485473 4.70245L4.60963 4.12577L6.45398 0.529876C6.68803 0.0729678 7.07172 0.0729678 7.30576 0.529876L9.15011 4.12577L13.2743 4.70245C13.7987 4.77547 13.9172 5.12694 13.5378 5.4825L10.5537 8.28162L11.2579 12.2341C11.3473 12.736 11.0374 12.9537 10.5682 12.7163L6.87987 10.8504L3.19153 12.7166C2.72238 12.9541 2.41245 12.7364 2.50181 12.2344L3.20607 8.28162Z" fill="#D3A601"/>
-                            </svg>
-                           </div>  
-                        </h3>
-                        <p class="popup-text">این آیس لته ما با شیر و توت فرنگی تازه دماوند اماده شده و خیلی خوفه تست کن و لذت ببر :)</p>
-                        <h4 class="popup-text">انتخاب شیر </h4>
-                        <div class="popup-title">
-                            <button class="popup-btn">شیر فندق</button>
-                            <button class="popup-btn">شیر وانیل</button>
-                            <button class="popup-btn">شیر عادی</button>
-                        </div>
-                    </div>
-                    <div class="div-footer div-body popup-title">
-                        <div>
-                            <button class="popup-btn popup-order">سفارش</button>
-                        </div>
-                        <div>
-                           <h4 class="popup-price">تومان</h4> 
-                            <p>140,000</p>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="main-box food-item">
-                <div>
-                    <img src="img/Rectangle 174.png" class="food-item__pic">
-                </div>     
-                <div class="food-item__title">
-                    <h3>آیس چاکلت</h3>
-                    <p style="font-size: 60%;">اسپرسو + آب + شیر + شکولات</p>
-                </div>
-                    
-                <div class=" food-item__btn">
-                 <button class="popup-footer_button">&#62;</button>
-
-                </div>
-                     
-                <div class="div-popup">
-                    <div class="div-header">
-                        <img class="popup-pic" src="img/Product Image.png" alt="">
-                    </div>
-                    <div class="div-body">
-                        <h3 class="popup-title">
-                            آیس لته شیر توت فرنگی
-                           <div class="popup-title">
-                            4.5
-                            <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3.20607 8.28162L0.221995 5.4825C-0.157087 5.12694 -0.0386464 4.77547 0.485473 4.70245L4.60963 4.12577L6.45398 0.529876C6.68803 0.0729678 7.07172 0.0729678 7.30576 0.529876L9.15011 4.12577L13.2743 4.70245C13.7987 4.77547 13.9172 5.12694 13.5378 5.4825L10.5537 8.28162L11.2579 12.2341C11.3473 12.736 11.0374 12.9537 10.5682 12.7163L6.87987 10.8504L3.19153 12.7166C2.72238 12.9541 2.41245 12.7364 2.50181 12.2344L3.20607 8.28162Z" fill="#D3A601"/>
-                            </svg>
-                           </div>  
-                        </h3>
-                        <p class="popup-text">این آیس لته ما با شیر و توت فرنگی تازه دماوند اماده شده و خیلی خوفه تست کن و لذت ببر :)</p>
-                        <h4 class="popup-text">انتخاب شیر </h4>
-                        <div class="popup-title">
-                            <button class="popup-btn">شیر فندق</button>
-                            <button class="popup-btn">شیر وانیل</button>
-                            <button class="popup-btn">شیر عادی</button>
-                        </div>
-                    </div>
-                    <div class="div-footer div-body popup-title">
-                        <div>
-                            <button class="popup-btn popup-order">سفارش</button>
-                        </div>
-                        <div>
-                           <h4 class="popup-price">تومان</h4> 
-                            <p>140,000</p>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="main-box food-item">
-                <div>
-                    <img src="img/Rectangle 174.png" class="food-item__pic">
-                </div>     
-                <div class="food-item__title">
-                    <h3>آیس چاکلت</h3>
-                    <p style="font-size: 60%;">اسپرسو + آب + شیر + شکولات</p>
-                </div>
-                    
-                <div class=" food-item__btn">
-                 <button class="popup-footer_button">&#62;</button>
-
-                </div>
-                     
-                <div class="div-popup">
-                    <div class="div-header">
-                        <img class="popup-pic" src="img/Product Image.png" alt="">
-                    </div>
-                    <div class="div-body">
-                        <h3 class="popup-title">
-                            آیس لته شیر توت فرنگی
-                           <div class="popup-title">
-                            4.5
-                            <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3.20607 8.28162L0.221995 5.4825C-0.157087 5.12694 -0.0386464 4.77547 0.485473 4.70245L4.60963 4.12577L6.45398 0.529876C6.68803 0.0729678 7.07172 0.0729678 7.30576 0.529876L9.15011 4.12577L13.2743 4.70245C13.7987 4.77547 13.9172 5.12694 13.5378 5.4825L10.5537 8.28162L11.2579 12.2341C11.3473 12.736 11.0374 12.9537 10.5682 12.7163L6.87987 10.8504L3.19153 12.7166C2.72238 12.9541 2.41245 12.7364 2.50181 12.2344L3.20607 8.28162Z" fill="#D3A601"/>
-                            </svg>
-                           </div>  
-                        </h3>
-                        <p class="popup-text">این آیس لته ما با شیر و توت فرنگی تازه دماوند اماده شده و خیلی خوفه تست کن و لذت ببر :)</p>
-                        <h4 class="popup-text">انتخاب شیر </h4>
-                        <div class="popup-title">
-                            <button class="popup-btn">شیر فندق</button>
-                            <button class="popup-btn">شیر وانیل</button>
-                            <button class="popup-btn">شیر عادی</button>
-                        </div>
-                    </div>
-                    <div class="div-footer div-body popup-title">
-                        <div>
-                            <button class="popup-btn popup-order">سفارش</button>
-                        </div>
-                        <div>
-                           <h4 class="popup-price">تومان</h4> 
-                            <p>140,000</p>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="main-box food-item">
-                <div>
-                    <img src="img/Rectangle 174.png" class="food-item__pic">
-                </div>     
-                <div class="food-item__title">
-                    <h3>آیس چاکلت</h3>
-                    <p style="font-size: 60%;">اسپرسو + آب + شیر + شکولات</p>
-                </div>
-                    
-                <div class=" food-item__btn">
-                 <button class="popup-footer_button">&#62;</button>
-
-                </div>
-                     
-                <div class="div-popup">
-                    <div class="div-header">
-                        <img class="popup-pic" src="img/Product Image.png" alt="">
-                    </div>
-                    <div class="div-body">
-                        <h3 class="popup-title">
-                            آیس لته شیر توت فرنگی
-                           <div class="popup-title">
-                            4.5
-                            <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3.20607 8.28162L0.221995 5.4825C-0.157087 5.12694 -0.0386464 4.77547 0.485473 4.70245L4.60963 4.12577L6.45398 0.529876C6.68803 0.0729678 7.07172 0.0729678 7.30576 0.529876L9.15011 4.12577L13.2743 4.70245C13.7987 4.77547 13.9172 5.12694 13.5378 5.4825L10.5537 8.28162L11.2579 12.2341C11.3473 12.736 11.0374 12.9537 10.5682 12.7163L6.87987 10.8504L3.19153 12.7166C2.72238 12.9541 2.41245 12.7364 2.50181 12.2344L3.20607 8.28162Z" fill="#D3A601"/>
-                            </svg>
-                           </div>  
-                        </h3>
-                        <p class="popup-text">این آیس لته ما با شیر و توت فرنگی تازه دماوند اماده شده و خیلی خوفه تست کن و لذت ببر :)</p>
-                        <h4 class="popup-text">انتخاب شیر </h4>
-                        <div class="popup-title">
-                            <button class="popup-btn">شیر فندق</button>
-                            <button class="popup-btn">شیر وانیل</button>
-                            <button class="popup-btn">شیر عادی</button>
-                        </div>
-                    </div>
-                    <div class="div-footer div-body popup-title">
-                        <div>
-                            <button class="popup-btn popup-order">سفارش</button>
-                        </div>
-                        <div>
-                           <h4 class="popup-price">تومان</h4> 
-                            <p>140,000</p>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        <div class="food-list down-to-up" id="juice">
-            <div class="main-box food-item">
-                <div>
-                    <img src="img/Rectangle 174.png" class="food-item__pic">
-                </div>     
-                <div class="food-item__title">
-                    <h3>آیس چاکلت</h3>
-                    <p style="font-size: 60%;">اسپرسو + آب + شیر + شکولات</p>
-                </div>
-                    
-                <div class=" food-item__btn">
-                 <button class="popup-footer_button">&#62;</button>
-
-                </div>
-                     
-                <div class="div-popup">
-                    <div class="div-header">
-                        <img class="popup-pic" src="img/Product Image.png" alt="">
-                    </div>
-                    <div class="div-body">
-                        <h3 class="popup-title">
-                            آیس لته شیر توت فرنگی
-                           <div class="popup-title">
-                            4.5
-                            <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3.20607 8.28162L0.221995 5.4825C-0.157087 5.12694 -0.0386464 4.77547 0.485473 4.70245L4.60963 4.12577L6.45398 0.529876C6.68803 0.0729678 7.07172 0.0729678 7.30576 0.529876L9.15011 4.12577L13.2743 4.70245C13.7987 4.77547 13.9172 5.12694 13.5378 5.4825L10.5537 8.28162L11.2579 12.2341C11.3473 12.736 11.0374 12.9537 10.5682 12.7163L6.87987 10.8504L3.19153 12.7166C2.72238 12.9541 2.41245 12.7364 2.50181 12.2344L3.20607 8.28162Z" fill="#D3A601"/>
-                            </svg>
-                           </div>  
-                        </h3>
-                        <p class="popup-text">این آیس لته ما با شیر و توت فرنگی تازه دماوند اماده شده و خیلی خوفه تست کن و لذت ببر :)</p>
-                        <h4 class="popup-text">انتخاب شیر </h4>
-                        <div class="popup-title">
-                            <button class="popup-btn">شیر فندق</button>
-                            <button class="popup-btn">شیر وانیل</button>
-                            <button class="popup-btn">شیر عادی</button>
-                        </div>
-                    </div>
-                    <div class="div-footer div-body popup-title">
-                        <div>
-                            <button class="popup-btn popup-order">سفارش</button>
-                        </div>
-                        <div>
-                           <h4 class="popup-price">تومان</h4> 
-                            <p>140,000</p>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="main-box food-item">
-                <div>
-                    <img src="img/Rectangle 174.png" class="food-item__pic">
-                </div>     
-                <div class="food-item__title">
-                    <h3>آیس چاکلت</h3>
-                    <p style="font-size: 60%;">اسپرسو + آب + شیر + شکولات</p>
-                </div>
-                    
-                <div class=" food-item__btn">
-                 <button class="popup-footer_button">&#62;</button>
-
-                </div>
-                     
-                <div class="div-popup">
-                    <div class="div-header">
-                        <img class="popup-pic" src="img/Product Image.png" alt="">
-                    </div>
-                    <div class="div-body">
-                        <h3 class="popup-title">
-                            آیس لته شیر توت فرنگی
-                           <div class="popup-title">
-                            4.5
-                            <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3.20607 8.28162L0.221995 5.4825C-0.157087 5.12694 -0.0386464 4.77547 0.485473 4.70245L4.60963 4.12577L6.45398 0.529876C6.68803 0.0729678 7.07172 0.0729678 7.30576 0.529876L9.15011 4.12577L13.2743 4.70245C13.7987 4.77547 13.9172 5.12694 13.5378 5.4825L10.5537 8.28162L11.2579 12.2341C11.3473 12.736 11.0374 12.9537 10.5682 12.7163L6.87987 10.8504L3.19153 12.7166C2.72238 12.9541 2.41245 12.7364 2.50181 12.2344L3.20607 8.28162Z" fill="#D3A601"/>
-                            </svg>
-                           </div>  
-                        </h3>
-                        <p class="popup-text">این آیس لته ما با شیر و توت فرنگی تازه دماوند اماده شده و خیلی خوفه تست کن و لذت ببر :)</p>
-                        <h4 class="popup-text">انتخاب شیر </h4>
-                        <div class="popup-title">
-                            <button class="popup-btn">شیر فندق</button>
-                            <button class="popup-btn">شیر وانیل</button>
-                            <button class="popup-btn">شیر عادی</button>
-                        </div>
-                    </div>
-                    <div class="div-footer div-body popup-title">
-                        <div>
-                            <button class="popup-btn popup-order">سفارش</button>
-                        </div>
-                        <div>
-                           <h4 class="popup-price">تومان</h4> 
-                            <p>140,000</p>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="main-box food-item">
-                <div>
-                    <img src="img/Rectangle 174.png" class="food-item__pic">
-                </div>     
-                <div class="food-item__title">
-                    <h3>آیس چاکلت</h3>
-                    <p style="font-size: 60%;">اسپرسو + آب + شیر + شکولات</p>
-                </div>
-                    
-                <div class=" food-item__btn">
-                 <button class="popup-footer_button">&#62;</button>
-
-                </div>
-                     
-                <div class="div-popup">
-                    <div class="div-header">
-                        <img class="popup-pic" src="img/Product Image.png" alt="">
-                    </div>
-                    <div class="div-body">
-                        <h3 class="popup-title">
-                            آیس لته شیر توت فرنگی
-                           <div class="popup-title">
-                            4.5
-                            <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3.20607 8.28162L0.221995 5.4825C-0.157087 5.12694 -0.0386464 4.77547 0.485473 4.70245L4.60963 4.12577L6.45398 0.529876C6.68803 0.0729678 7.07172 0.0729678 7.30576 0.529876L9.15011 4.12577L13.2743 4.70245C13.7987 4.77547 13.9172 5.12694 13.5378 5.4825L10.5537 8.28162L11.2579 12.2341C11.3473 12.736 11.0374 12.9537 10.5682 12.7163L6.87987 10.8504L3.19153 12.7166C2.72238 12.9541 2.41245 12.7364 2.50181 12.2344L3.20607 8.28162Z" fill="#D3A601"/>
-                            </svg>
-                           </div>  
-                        </h3>
-                        <p class="popup-text">این آیس لته ما با شیر و توت فرنگی تازه دماوند اماده شده و خیلی خوفه تست کن و لذت ببر :)</p>
-                        <h4 class="popup-text">انتخاب شیر </h4>
-                        <div class="popup-title">
-                            <button class="popup-btn">شیر فندق</button>
-                            <button class="popup-btn">شیر وانیل</button>
-                            <button class="popup-btn">شیر عادی</button>
-                        </div>
-                    </div>
-                    <div class="div-footer div-body popup-title">
-                        <div>
-                            <button class="popup-btn popup-order">سفارش</button>
-                        </div>
-                        <div>
-                           <h4 class="popup-price">تومان</h4> 
-                            <p>140,000</p>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="main-box food-item">
-                <div>
-                    <img src="img/Rectangle 174.png" class="food-item__pic">
-                </div>     
-                <div class="food-item__title">
-                    <h3>آیس چاکلت</h3>
-                    <p style="font-size: 60%;">اسپرسو + آب + شیر + شکولات</p>
-                </div>
-                    
-                <div class=" food-item__btn">
-                 <button class="popup-footer_button">&#62;</button>
-
-                </div>
-                     
-                <div class="div-popup">
-                    <div class="div-header">
-                        <img class="popup-pic" src="img/Product Image.png" alt="">
-                    </div>
-                    <div class="div-body">
-                        <h3 class="popup-title">
-                            آیس لته شیر توت فرنگی
-                           <div class="popup-title">
-                            4.5
-                            <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3.20607 8.28162L0.221995 5.4825C-0.157087 5.12694 -0.0386464 4.77547 0.485473 4.70245L4.60963 4.12577L6.45398 0.529876C6.68803 0.0729678 7.07172 0.0729678 7.30576 0.529876L9.15011 4.12577L13.2743 4.70245C13.7987 4.77547 13.9172 5.12694 13.5378 5.4825L10.5537 8.28162L11.2579 12.2341C11.3473 12.736 11.0374 12.9537 10.5682 12.7163L6.87987 10.8504L3.19153 12.7166C2.72238 12.9541 2.41245 12.7364 2.50181 12.2344L3.20607 8.28162Z" fill="#D3A601"/>
-                            </svg>
-                           </div>  
-                        </h3>
-                        <p class="popup-text">این آیس لته ما با شیر و توت فرنگی تازه دماوند اماده شده و خیلی خوفه تست کن و لذت ببر :)</p>
-                        <h4 class="popup-text">انتخاب شیر </h4>
-                        <div class="popup-title">
-                            <button class="popup-btn">شیر فندق</button>
-                            <button class="popup-btn">شیر وانیل</button>
-                            <button class="popup-btn">شیر عادی</button>
-                        </div>
-                    </div>
-                    <div class="div-footer div-body popup-title">
-                        <div>
-                            <button class="popup-btn popup-order">سفارش</button>
-                        </div>
-                        <div>
-                           <h4 class="popup-price">تومان</h4> 
-                            <p>140,000</p>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        <div class="food-list down-to-up" id="cake">
-            <div class="main-box food-item">
-                <div>
-                    <img src="img/Rectangle 174.png" class="food-item__pic">
-                </div>     
-                <div class="food-item__title">
-                    <h3>آیس چاکلت</h3>
-                    <p style="font-size: 60%;">اسپرسو + آب + شیر + شکولات</p>
-                </div>
-                    
-                <div class=" food-item__btn">
-                 <button class="popup-footer_button">&#62;</button>
-
-                </div>
-                     
-                <div class="div-popup">
-                    <div class="div-header">
-                        <img class="popup-pic" src="img/Product Image.png" alt="">
-                    </div>
-                    <div class="div-body">
-                        <h3 class="popup-title">
-                            آیس لته شیر توت فرنگی
-                           <div class="popup-title">
-                            4.5
-                            <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3.20607 8.28162L0.221995 5.4825C-0.157087 5.12694 -0.0386464 4.77547 0.485473 4.70245L4.60963 4.12577L6.45398 0.529876C6.68803 0.0729678 7.07172 0.0729678 7.30576 0.529876L9.15011 4.12577L13.2743 4.70245C13.7987 4.77547 13.9172 5.12694 13.5378 5.4825L10.5537 8.28162L11.2579 12.2341C11.3473 12.736 11.0374 12.9537 10.5682 12.7163L6.87987 10.8504L3.19153 12.7166C2.72238 12.9541 2.41245 12.7364 2.50181 12.2344L3.20607 8.28162Z" fill="#D3A601"/>
-                            </svg>
-                           </div>  
-                        </h3>
-                        <p class="popup-text">این آیس لته ما با شیر و توت فرنگی تازه دماوند اماده شده و خیلی خوفه تست کن و لذت ببر :)</p>
-                        <h4 class="popup-text">انتخاب شیر </h4>
-                        <div class="popup-title">
-                            <button class="popup-btn">شیر فندق</button>
-                            <button class="popup-btn">شیر وانیل</button>
-                            <button class="popup-btn">شیر عادی</button>
-                        </div>
-                    </div>
-                    <div class="div-footer div-body popup-title">
-                        <div>
-                            <button class="popup-btn popup-order">سفارش</button>
-                        </div>
-                        <div>
-                           <h4 class="popup-price">تومان</h4> 
-                            <p>140,000</p>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="main-box food-item">
-                <div>
-                    <img src="img/Rectangle 174.png" class="food-item__pic">
-                </div>     
-                <div class="food-item__title">
-                    <h3>آیس چاکلت</h3>
-                    <p style="font-size: 60%;">اسپرسو + آب + شیر + شکولات</p>
-                </div>
-                    
-                <div class=" food-item__btn">
-                 <button class="popup-footer_button">&#62;</button>
-
-                </div>
-                     
-                <div class="div-popup">
-                    <div class="div-header">
-                        <img class="popup-pic" src="img/Product Image.png" alt="">
-                    </div>
-                    <div class="div-body">
-                        <h3 class="popup-title">
-                            آیس لته شیر توت فرنگی
-                           <div class="popup-title">
-                            4.5
-                            <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3.20607 8.28162L0.221995 5.4825C-0.157087 5.12694 -0.0386464 4.77547 0.485473 4.70245L4.60963 4.12577L6.45398 0.529876C6.68803 0.0729678 7.07172 0.0729678 7.30576 0.529876L9.15011 4.12577L13.2743 4.70245C13.7987 4.77547 13.9172 5.12694 13.5378 5.4825L10.5537 8.28162L11.2579 12.2341C11.3473 12.736 11.0374 12.9537 10.5682 12.7163L6.87987 10.8504L3.19153 12.7166C2.72238 12.9541 2.41245 12.7364 2.50181 12.2344L3.20607 8.28162Z" fill="#D3A601"/>
-                            </svg>
-                           </div>  
-                        </h3>
-                        <p class="popup-text">این آیس لته ما با شیر و توت فرنگی تازه دماوند اماده شده و خیلی خوفه تست کن و لذت ببر :)</p>
-                        <h4 class="popup-text">انتخاب شیر </h4>
-                        <div class="popup-title">
-                            <button class="popup-btn">شیر فندق</button>
-                            <button class="popup-btn">شیر وانیل</button>
-                            <button class="popup-btn">شیر عادی</button>
-                        </div>
-                    </div>
-                    <div class="div-footer div-body popup-title">
-                        <div>
-                            <button class="popup-btn popup-order">سفارش</button>
-                        </div>
-                        <div>
-                           <h4 class="popup-price">تومان</h4> 
-                            <p>140,000</p>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="main-box food-item">
-                <div>
-                    <img src="img/Rectangle 174.png" class="food-item__pic">
-                </div>     
-                <div class="food-item__title">
-                    <h3>آیس چاکلت</h3>
-                    <p style="font-size: 60%;">اسپرسو + آب + شیر + شکولات</p>
-                </div>
-                    
-                <div class=" food-item__btn">
-                 <button class="popup-footer_button">&#62;</button>
-
-                </div>
-                     
-                <div class="div-popup">
-                    <div class="div-header">
-                        <img class="popup-pic" src="img/Product Image.png" alt="">
-                    </div>
-                    <div class="div-body">
-                        <h3 class="popup-title">
-                            آیس لته شیر توت فرنگی
-                           <div class="popup-title">
-                            4.5
-                            <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3.20607 8.28162L0.221995 5.4825C-0.157087 5.12694 -0.0386464 4.77547 0.485473 4.70245L4.60963 4.12577L6.45398 0.529876C6.68803 0.0729678 7.07172 0.0729678 7.30576 0.529876L9.15011 4.12577L13.2743 4.70245C13.7987 4.77547 13.9172 5.12694 13.5378 5.4825L10.5537 8.28162L11.2579 12.2341C11.3473 12.736 11.0374 12.9537 10.5682 12.7163L6.87987 10.8504L3.19153 12.7166C2.72238 12.9541 2.41245 12.7364 2.50181 12.2344L3.20607 8.28162Z" fill="#D3A601"/>
-                            </svg>
-                           </div>  
-                        </h3>
-                        <p class="popup-text">این آیس لته ما با شیر و توت فرنگی تازه دماوند اماده شده و خیلی خوفه تست کن و لذت ببر :)</p>
-                        <h4 class="popup-text">انتخاب شیر </h4>
-                        <div class="popup-title">
-                            <button class="popup-btn">شیر فندق</button>
-                            <button class="popup-btn">شیر وانیل</button>
-                            <button class="popup-btn">شیر عادی</button>
-                        </div>
-                    </div>
-                    <div class="div-footer div-body popup-title">
-                        <div>
-                            <button class="popup-btn popup-order">سفارش</button>
-                        </div>
-                        <div>
-                           <h4 class="popup-price">تومان</h4> 
-                            <p>140,000</p>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="main-box food-item">
-                <div>
-                    <img src="img/Rectangle 174.png" class="food-item__pic">
-                </div>     
-                <div class="food-item__title">
-                    <h3>آیس چاکلت</h3>
-                    <p style="font-size: 60%;">اسپرسو + آب + شیر + شکولات</p>
-                </div>
-                    
-                <div class=" food-item__btn">
-                 <button class="popup-footer_button">&#62;</button>
-
-                </div>
-                     
-                <div class="div-popup">
-                    <div class="div-header">
-                        <img class="popup-pic" src="img/Product Image.png" alt="">
-                    </div>
-                    <div class="div-body">
-                        <h3 class="popup-title">
-                            آیس لته شیر توت فرنگی
-                           <div class="popup-title">
-                            4.5
-                            <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3.20607 8.28162L0.221995 5.4825C-0.157087 5.12694 -0.0386464 4.77547 0.485473 4.70245L4.60963 4.12577L6.45398 0.529876C6.68803 0.0729678 7.07172 0.0729678 7.30576 0.529876L9.15011 4.12577L13.2743 4.70245C13.7987 4.77547 13.9172 5.12694 13.5378 5.4825L10.5537 8.28162L11.2579 12.2341C11.3473 12.736 11.0374 12.9537 10.5682 12.7163L6.87987 10.8504L3.19153 12.7166C2.72238 12.9541 2.41245 12.7364 2.50181 12.2344L3.20607 8.28162Z" fill="#D3A601"/>
-                            </svg>
-                           </div>  
-                        </h3>
-                        <p class="popup-text">این آیس لته ما با شیر و توت فرنگی تازه دماوند اماده شده و خیلی خوفه تست کن و لذت ببر :)</p>
-                        <h4 class="popup-text">انتخاب شیر </h4>
-                        <div class="popup-title">
-                            <button class="popup-btn">شیر فندق</button>
-                            <button class="popup-btn">شیر وانیل</button>
-                            <button class="popup-btn">شیر عادی</button>
-                        </div>
-                    </div>
-                    <div class="div-footer div-body popup-title">
-                        <div>
-                            <button class="popup-btn popup-order">سفارش</button>
-                        </div>
-                        <div>
-                           <h4 class="popup-price">تومان</h4> 
-                            <p>140,000</p>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-       
-        <!--continuo-->
+  <!-- صفحه اصلی -->
+  <main class="container" id="app">
+    <div class="search-container">
+  <input class="search-bar" type="text" placeholder="جستجو آیتم مورد نظرتون..." aria-label="جستجو"/>
+   
   
-    <!--popup-->
-    <div class="overlay" id="overlay"></div>
+<svg class="search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M11 2C15.9706 2 20 6.02944 20 11C20 13.1248 19.2637 15.0776 18.0323 16.6172L21.7071 20.2929C22.0976 20.6834 22.0976 21.3166 21.7071 21.7071C21.3466 22.0676 20.7794 22.0953 20.3871 21.7903L20.2929 21.7071L16.6172 18.0323C15.0776 19.2637 13.1248 20 11 20C6.02944 20 2 15.9706 2 11C2 6.02944 6.02944 2 11 2ZM11 4C7.13401 4 4 7.13401 4 11C4 14.866 7.13401 18 11 18C14.866 18 18 14.866 18 11C18 7.13401 14.866 4 11 4Z" fill="#D6CDB4"/>
+</svg>
+</div>
 
-    <div class="popup fade-in-out__popup" id="popup">
-        <div class="popup-header">
-          <button onclick="closePopup()" class="closePopup">&#11104;</button>
-        </div>
-        <div class="popup-body" id="popup-body">
-            <!-- محتوای پاپ‌آپ -->
-        </div>
-        <div class="popup-footer">
-         </div>
+    <!-- تب‌ها مطابق کلاس‌ها و data-tab خودت -->
+    <div class="tabs left-to-right">
+      <div class="tab" data-tab="cake">
+        <img src="img/Corretto.png" alt="کیک">
+        چیز کیک
+      </div>
+      <div class="tab" data-tab="juice">
+        <img src="img/limo.png" alt="آبمیوه">
+        آبمیوه طبیعی
+      </div>
+      <div class="tab" data-tab="shick">
+        <img src="img/Galao.png" alt="شیک">
+        شیک
+      </div>
+      <div class="tab active" data-tab="hot">
+        <img src="img/Lungo.png" alt="نوشیدنی گرم">
+        نوشیدنی‌ گرم
+      </div>
     </div>
+
+    <!-- لیست‌های مطابق id های خودت -->
+    <div class="food-list active down-to-up" id="hot">
+      <div class="main-box food-item">
+        <img src="img/Rectangle 174.png" class="food-item__pic" alt="آیس چاکلت"/>
+        <div class="food-item__title">
+          <h3>آیس چاکلت</h3>
+          <p>اسپرسو + آب + شیر + شکلات</p>
+        </div>
+        <div class="food-item__btn">
+          <button class="popup-footer_button" type="button">&#62;</button>
+        </div>
+      </div>
+    </div>
+    <div class="food-list active down-to-up" id="hot">
+      <div class="main-box food-item">
+        <img src="img/Rectangle 174.png" class="food-item__pic" alt="آیس چاکلت"/>
+        <div class="food-item__title">
+          <h3>آیس چاکلت</h3>
+          <p>اسپرسو + آب + شیر + شکلات</p>
+        </div>
+        <div class="food-item__btn">
+          <button class="popup-footer_button" type="button">&#62;</button>
+        </div>
+      </div>
+    </div>
+    <div class="food-list active down-to-up" id="hot">
+      <div class="main-box food-item">
+        <img src="img/Rectangle 174.png" class="food-item__pic" alt="آیس چاکلت"/>
+        <div class="food-item__title">
+          <h3>آیس چاکلت</h3>
+          <p>اسپرسو + آب + شیر + شکلات</p>
+        </div>
+        <div class="food-item__btn">
+          <button class="popup-footer_button" type="button">&#62;</button>
+        </div>
+      </div>
+    </div>
+    <div class="food-list active down-to-up" id="hot">
+      <div class="main-box food-item">
+        <img src="img/Rectangle 174.png" class="food-item__pic" alt="آیس چاکلت"/>
+        <div class="food-item__title">
+          <h3>آیس چاکلت</h3>
+          <p>اسپرسو + آب + شیر + شکلات</p>
+        </div>
+        <div class="food-item__btn">
+          <button class="popup-footer_button" type="button">&#62;</button>
+        </div>
+      </div>
+    </div>
+    <div class="food-list  down-to-up" id="shick">
+      <div class="main-box food-item">
+        <img src="img/Rectangle 174.png" class="food-item__pic" alt="آیس چاکلت"/>
+        <div class="food-item__title">
+          <h3>آیس چاکلت</h3>
+          <p>اسپرسو + آب + شیر + شکلات</p>
+        </div>
+        <div class="food-item__btn">
+          <button class="popup-footer_button" type="button">&#62;</button>
+        </div>
+      </div>
+    </div>
+    <div class="food-list  down-to-up" id="shick">
+      <div class="main-box food-item">
+        <img src="img/Rectangle 174.png" class="food-item__pic" alt="آیس چاکلت"/>
+        <div class="food-item__title">
+          <h3>آیس چاکلت</h3>
+          <p>اسپرسو + آب + شیر + شکلات</p>
+        </div>
+        <div class="food-item__btn">
+          <button class="popup-footer_button" type="button">&#62;</button>
+        </div>
+      </div>
+    </div>
+    <div class="food-list  down-to-up" id="shick">
+      <div class="main-box food-item">
+        <img src="img/Rectangle 174.png" class="food-item__pic" alt="آیس چاکلت"/>
+        <div class="food-item__title">
+          <h3>آیس چاکلت</h3>
+          <p>اسپرسو + آب + شیر + شکلات</p>
+        </div>
+        <div class="food-item__btn">
+          <button class="popup-footer_button" type="button">&#62;</button>
+        </div>
+      </div>
+    </div>
+    <div class="food-list  down-to-up" id="shick">
+      <div class="main-box food-item">
+        <img src="img/Rectangle 174.png" class="food-item__pic" alt="آیس چاکلت"/>
+        <div class="food-item__title">
+          <h3>آیس چاکلت</h3>
+          <p>اسپرسو + آب + شیر + شکلات</p>
+        </div>
+        <div class="food-item__btn">
+          <button class="popup-footer_button" type="button">&#62;</button>
+        </div>
+      </div>
+    </div>
+    <div class="food-list  down-to-up" id="juice">
+      <div class="main-box food-item">
+        <img src="img/Rectangle 174.png" class="food-item__pic" alt="آیس چاکلت"/>
+        <div class="food-item__title">
+          <h3>آیس چاکلت</h3>
+          <p>اسپرسو + آب + شیر + شکلات</p>
+        </div>
+        <div class="food-item__btn">
+          <button class="popup-footer_button" type="button">&#62;</button>
+        </div>
+      </div>
+    </div>
+    <div class="food-list  down-to-up" id="juice">
+      <div class="main-box food-item">
+        <img src="img/Rectangle 174.png" class="food-item__pic" alt="آیس چاکلت"/>
+        <div class="food-item__title">
+          <h3>آیس چاکلت</h3>
+          <p>اسپرسو + آب + شیر + شکلات</p>
+        </div>
+        <div class="food-item__btn">
+          <button class="popup-footer_button" type="button">&#62;</button>
+        </div>
+      </div>
+    </div>
+    <div class="food-list  down-to-up" id="juice">
+      <div class="main-box food-item">
+        <img src="img/Rectangle 174.png" class="food-item__pic" alt="آیس چاکلت"/>
+        <div class="food-item__title">
+          <h3>آیس چاکلت</h3>
+          <p>اسپرسو + آب + شیر + شکلات</p>
+        </div>
+        <div class="food-item__btn">
+          <button class="popup-footer_button" type="button">&#62;</button>
+        </div>
+      </div>
+    </div>
+    <div class="food-list  down-to-up" id="juice">
+      <div class="main-box food-item">
+        <img src="img/Rectangle 174.png" class="food-item__pic" alt="آیس چاکلت"/>
+        <div class="food-item__title">
+          <h3>آیس چاکلت</h3>
+          <p>اسپرسو + آب + شیر + شکلات</p>
+        </div>
+        <div class="food-item__btn">
+          <button class="popup-footer_button" type="button">&#62;</button>
+        </div>
+      </div>
+    </div>
+    <div class="food-list  down-to-up" id="cake">
+      <div class="main-box food-item">
+        <img src="img/Rectangle 174.png" class="food-item__pic" alt="آیس چاکلت"/>
+        <div class="food-item__title">
+          <h3>آیس چاکلت</h3>
+          <p>اسپرسو + آب + شیر + شکلات</p>
+        </div>
+        <div class="food-item__btn">
+          <button class="popup-footer_button" type="button">&#62;</button>
+        </div>
+      </div>
+    </div>
+    <div class="food-list  down-to-up" id="cake">
+      <div class="main-box food-item">
+        <img src="img/Rectangle 174.png" class="food-item__pic" alt="آیس چاکلت"/>
+        <div class="food-item__title">
+          <h3>آیس چاکلت</h3>
+          <p>اسپرسو + آب + شیر + شکلات</p>
+        </div>
+        <div class="food-item__btn">
+          <button class="popup-footer_button" type="button">&#62;</button>
+        </div>
+      </div>
+    </div>
+    <div class="food-list  down-to-up" id="cake">
+      <div class="main-box food-item">
+        <img src="img/Rectangle 174.png" class="food-item__pic" alt="آیس چاکلت"/>
+        <div class="food-item__title">
+          <h3>آیس چاکلت</h3>
+          <p>اسپرسو + آب + شیر + شکلات</p>
+        </div>
+        <div class="food-item__btn">
+          <button class="popup-footer_button" type="button">&#62;</button>
+        </div>
+      </div>
+    </div>
+    <div class="food-list  down-to-up" id="cake">
+      <div class="main-box food-item">
+        <img src="img/Rectangle 174.png" class="food-item__pic" alt="آیس چاکلت"/>
+        <div class="food-item__title">
+          <h3>آیس چاکلت</h3>
+          <p>اسپرسو + آب + شیر + شکلات</p>
+        </div>
+        <div class="food-item__btn">
+          <button class="popup-footer_button" type="button">&#62;</button>
+        </div>
+      </div>
+    </div>
+
+    
+  </main>
+
+  <!-- Overlay + Popup مطابق ساختار تو -->
+  <!-- قبلاً popup جدا بود، حالا داخل overlay قرار گرفت -->
+<div class="overlay" id="overlay">
+  <div class="popup" id="popup">
+    <div class="popup-header">
+      <button class="closePopup">&#11104;</button>
+    </div>
+    <div class="popup-body" id="popup-body"></div>
+  </div>
+</div>
+
+  
 </body>
-<script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
-<script defer src="script/script.js"></script>
 </html>
