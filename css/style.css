@@ -1,66 +1,83 @@
-  /* ریست خیلی سبک */
+/* ریست سبک */
 
   @font-face {
   font-family: 'kalameh';
   src: url('../fonts/TTF/Kalameh-Medium.ttf');
 }
-*{
+ 
+* {
   font-family: 'kalameh';
-   box-sizing: border-box;
-  
+  box-sizing: border-box;
 }
+
 body {
     font-family:'kalameh';
-    margin: 0; font-family: "Segoe UI", system-ui; background: #f7f8f9; color: #212121; }
+  margin: 0;
+  font-family: "Segoe UI", system-ui;
+  background: #f7f8f9;
+  color: #212121;
+}
 
-    /* حالت لود (Splash) */
+/* حالت لود (Splash) */
 #splash {
-  position: fixed; inset: 0; background: #121212; color: #fff;
-  display: grid; place-items: center; z-index: 9999;
+  position: fixed;
+  inset: 0;
+  background: #121212;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  z-index: 9999;
   animation: splash-in .6s ease both;
 }
-#splash .logo { font-size: 2.2rem; letter-spacing: .5px; }
+#splash .logo {
+  font-size: 2.2rem;
+  letter-spacing: .5px;
+}
 #splash .logo span { opacity: .82; }
 
 @keyframes splash-in {
   from { opacity: 0; transform: translateY(40px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-
-/* انیمیشن خروج از پایین به بالا */
 @keyframes splash-out {
   from { opacity: 1; transform: translateY(0); }
   to   { opacity: 0; transform: translateY(-100%); }
 }
 
-    /* هدر مطابق دیزاین (مینیمال، بدون طلایی) */
-    .header {
-     position: sticky;
-    display: flex; 
-    top: 0;
-    background: #fff; 
-    padding: 1rem;
-    text-align: center;
-    z-index: 50;
-    justify-content: space-between;
-    }
-    
-    .header h1 { margin: 0; font-size: 1.4rem; font-weight: 600; color: rgb(85, 85, 87); }
-    .header h1 .brand-secondary { color: #9f9f9f; font-weight: 500; }
-
-    .header .food-item__btn .popup-footer_button{
-      background-color: #343339;
-    }
-
-    /* صفحه اصلی */
-    .container { padding: 1rem; max-width: 960px; margin: 0 auto; }
-
-    /* سرچ‌بار مطابق متن دیزاین */
-   .search-container {
-  position: relative;
-  width: 100%;
+/* هدر مینیمال */
+.header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  padding: 1rem;
+  z-index: 50;
+}
+.header h1 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: rgb(85, 85, 87);
+}
+.header h1 .brand-secondary {
+  color: #9f9f9f;
+  font-weight: 500;
+}
+.header .food-item__btn .popup-footer_button {
+    background-color: #343339;
 }
 
+/* صفحه اصلی */
+.container {
+  padding: 1rem;
+  max-width: 960px;
+  margin: 0 auto;
+  direction: rtl;
+}
+
+/* سرچ‌بار */
+.search-container { position: relative; width: 100%; }
 .search-bar {
   width: 100%;
   padding: .75rem .9rem;
@@ -70,13 +87,10 @@ body {
   font-size: .95rem;
   outline: none;
   color: #fff;
-  padding-right: 2.5rem; /* جا برای آیکن */
+  text-align: right;
+  padding-right: 2.5rem;
 }
-
-.search-bar::placeholder {
-  color: #9b9b9b;
-}
-
+.search-bar::placeholder { color: #9b9b9b; }
 .search-icon {
   position: absolute;
   right: 12px;
@@ -85,107 +99,229 @@ body {
   color: #9b9b9b;
   pointer-events: none;
 }
-    /* تب‌ها: آیکون + عنوان، راست‌به‌چپ */
-    .tabs {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: .6rem; margin-top: 1rem;
-    }
-    .tab {
-      display: flex; align-items: center; gap: .5rem;
-        border-radius: 25px;    font-size: 85%;
-      padding: .6rem .7rem; cursor: pointer; transition: background .2s ease, border-color .2s ease;justify-content: center;
-    }
-    .tab img { width: 20px; height: 20px; }
-    .tab.active { background: #343339; color: #ffffff; }
 
-    /* لیست‌ها و آیتم‌ها */
-    .food-list { display: none; margin-top: 1rem; }
-    .food-list.active { display: grid; gap: .8rem; }
+/* تب‌ها */
+.tabs {
+  display: flex;
+  gap: .6rem;
+  margin-top: 1rem;
+  direction: rtl;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  justify-content: space-evenly;
+  position: relative;
+  cursor: default;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tabs::before,
+.tabs::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 40px;
+  height: 100%;
+  pointer-events: none;
+}
+.tabs::before {
+  right: 0;
+  background: linear-gradient(to left, #fff, transparent);
+}
+.tabs::after {
+  left: 0;
+  background: linear-gradient(to right, #fff, transparent);
+}
+.tab {
+  flex: 0 0 auto;
+  min-width: 120px;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  flex-direction: row-reverse;
+  text-align: right;
+  border-radius: 10px;
+  padding: .6rem .7rem;
+  justify-content: center;
+}
+.tab img { width: 20px; height: 20px; }
+.tab.active { background: #343339; color: #fff; }
 
-    .food-item {
-      display: grid; grid-template-columns: 64px 1fr auto;
-      align-items: center; gap: .9rem; background: #343339; border: 1px solid #eaeaea;
-      border-radius: 12px; padding: .7rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,.03);
-      opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease;
-    }
-    .food-item.show { opacity: 1; transform: translateY(0); }
-
-    .food-item__pic { width: 64px; height: 64px; object-fit: cover; border-radius: 10px; }
-    .food-item__title h3 { margin: 0; font-size: 1rem; color: #ffffff; }
-    .food-item__title p { margin: .25rem 0 0; color: #a3a3a3; font-size: .85rem; }
-
-    .food-item__btn .popup-footer_button {
-      width: 34px; height: 34px; border-radius: 25%;
-      border: none; background: #e3e6eb; color: #2a2f37;
-      display: grid; place-items: center; font-size: 1.1rem; cursor: pointer;
-      transition: background .2s ease;
-    }
-    .food-item__btn .popup-footer_button:hover { background: #d6cdb4; }
-
-    /* Overlay + Popup مطابق ساختار خودت */
-    /* قبلاً پاپ‌آپ با top/left/translate بود، حالا داخل overlay با Flex مرکز میشه */
-.overlay {
-  position: fixed; inset: 0;
+/* لیست و آیتم‌ها */
+.food-list {
   display: none;
-  align-items: center; justify-content: center; /* مرکز عمودی و افقی */
+  margin-top: 1rem;
+  direction: rtl;
+}
+.food-list.active {
+  display: grid;
+  gap: .8rem;
+}
+.food-item {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  align-items: center;
+  gap: .9rem;
+  background: #343339;
+  border: 1px solid #eaeaea;
+  border-radius: 12px;
+  padding: .7rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,.03);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .5s ease, transform .5s ease;
+  cursor: pointer;
+}
+.food-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.food-item__pic {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.food-item__title h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #fff;
+}
+.food-item__title p {
+  margin: .25rem 0 0;
+  color: #a3a3a3;
+  font-size: .85rem;
+}
+.food-item__btn .popup-footer_button {
+  width: 34px;
+  height: 34px;
+  border-radius: 25%;
+  border: none;
+  background: #e3e6eb;
+  color: #2a2f37;
+  display: grid;
+  place-items: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background .2s ease;
+}
+.food-item__btn .popup-footer_button:hover { background: #d6cdb4; }
+
+/* Overlay + Popup */
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
   background: rgba(0,0,0,.45);
   z-index: 1000;
 }
 .overlay.active { display: flex; }
-
 .popup {
   width: min(420px, 92vw);
-  max-height: 80vh;              /* جلوگیری از بیرون‌زدن در موبایل */
+  max-height: 80vh;
   background: #fff;
   border-radius: 14px;
   box-shadow: 0 14px 38px rgba(0,0,0,.18);
-  overflow: auto;                /* محتوای بلند اسکرول داخلی می‌شود */
+  overflow: auto;
   animation: popup-in .24s ease both;
 }
 @keyframes popup-in {
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-     
-    @keyframes overlay-in {
-      from { opacity: 0; } to { opacity: 1; }
-    }
-
-     
-    .popup.active { display: block; }
-     
-
-    .popup-header { display: flex; justify-content: flex-end; padding: .6rem .7rem; }
-    .closePopup { border: none; background: transparent; font-size: 1.6rem; line-height: 1; cursor: pointer; color: #333; }
-
-    .popup-body { padding: .2rem .9rem 1rem; }
-    .popup-pic { width: 100%; border-radius: 12px; margin-bottom: .7rem; }
-    .popup-title { display: flex; align-items: center; gap: .6rem; }
-    .popup-title h3 { margin: 0; font-size: 1.05rem; color: #222; flex: 1; }
-    .rating { display: inline-flex; align-items: center; gap: .25rem; color: #444; font-weight: 600; }
-    .rating svg { display: inline-block; }
-
-    .popup-text { margin: .6rem 0; color: #5a5a5a; font-size: .9rem; line-height: 1.7; }
-
-    .popup-subtitle { margin: .8rem 0 .4rem; font-size: .92rem; color: #303030; }
-
-    .popup-options { display: flex; gap: .4rem; flex-wrap: wrap; }
-    .popup-btn {
-      border: 1px solid #dcdcdc; background: #fafafa; color: #333;
-      border-radius: 10px; padding: .45rem .8rem; cursor: pointer;
-      transition: background .2s ease, border-color .2s ease;
-    }
-    .popup-btn:hover { background: #f0f2f5; border-color: #cfd3d8; }
-
-    .div-footer {
-      display: flex; justify-content: space-between; align-items: center;
-      padding-top: .8rem; border-top: 1px solid #efefef; margin-top: .8rem;
-    }
-    .popup-order {
-      border: none; background: #2a2f37; color: #fff;
-      border-radius: 10px; padding: .55rem 1rem; cursor: pointer;
-    }
-    .popup-price { margin: 0; color: #5b5b5b; }
-    .popup-amount { margin: .2rem 0 0; font-size: 1.05rem; font-weight: 700; color: #1f1f1f; }
- 
+.popup-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: .6rem .7rem;
+}
+.closePopup {
+  border: none;
+  background: transparent;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #333;
+}
+.popup-body {
+  padding: .2rem .9rem 1rem;
+  direction: rtl;
+}
+.popup-pic {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: .7rem;
+}
+.popup-title {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  justify-content: space-between;
+}
+.popup-title h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #222;
+  flex: 1;
+}
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: .25rem;
+  color: #444;
+  font-weight: 600;
+}
+.popup-text {
+  margin: .6rem 0;
+  color: #5a5a5a;
+  font-size: .9rem;
+  line-height: 1.7;
+  text-align: right;
+}
+.popup-subtitle {
+  margin: .8rem 0 .4rem;
+  font-size: .92rem;
+  color: #303030;
+  text-align: right;
+}
+.popup-options {
+  display: flex;
+  gap: .4rem;
+  flex-wrap: wrap;
+}
+.popup-btn {
+  border: 1px solid #dcdcdc;
+  background: #fafafa;
+  color: #333;
+  border-radius: 10px;
+  padding: .45rem .8rem;
+  cursor: pointer;
+  transition: background .2s ease, border-color .2s ease;
+}
+.popup-btn:hover {
+  background: #f0f2f5;
+  border-color: #cfd3d8;
+}
+.div-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: .8rem;
+  border-top: 1px solid #efefef;
+  margin-top: .8rem;
+}
+.popup-order {
+  border: none;
+  background: #2a2f37;
+  color: #fff;
+  border-radius: 10px;
+  padding: .55rem 1rem;
+  cursor: pointer;
+}
+.popup-price { margin: 0; color: #5b5b5b; }
+.popup-amount {
+  margin: .2rem 0 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1f1f1f
+}
