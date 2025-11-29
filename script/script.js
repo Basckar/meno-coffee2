@@ -92,22 +92,33 @@ function buildPopupContent({
       `;
 }
 
-// کلیک روی دکمه کارت برای باز کردن پاپ‌آپ
-document.addEventListener("click", (e) => {
-  const btn = e.target.closest(".popup-footer_button");
-  if (btn) {
-    const card = btn.closest(".food-item");
+// باز کردن پاپ‌آپ وقتی روی کل کارت کلیک بشه
+document.querySelectorAll(".food-item").forEach((item) => {
+  item.addEventListener("click", () => {
     const title =
-      card.querySelector(".food-item__title h3")?.textContent.trim() || "آیتم";
+      item.querySelector(".food-item__title h3")?.textContent.trim() || "آیتم";
     const desc =
-      card.querySelector(".food-item__title p")?.textContent.trim() || "";
+      item.querySelector(".food-item__title p")?.textContent.trim() || "";
     const imgSrc =
-      card.querySelector(".food-item__pic")?.getAttribute("src") ||
+      item.querySelector(".food-item__pic")?.getAttribute("src") ||
       "img/Product Image.png";
     openPopup(buildPopupContent({ title, desc, imgSrc }));
-  }
+  });
 });
 
 // بستن پاپ‌آپ
+function closePopup() {
+  overlay.classList.remove("active");
+  document.body.style.overflow = "";
+  popupBody.innerHTML = "";
+}
+
+// دکمه‌ی بستن داخل پاپ‌آپ
 document.querySelector(".closePopup").addEventListener("click", closePopup);
-overlay.addEventListener("click", closePopup);
+
+// کلیک روی فضای بیرون (فقط خود overlay، نه داخل پاپ‌آپ)
+overlay.addEventListener("click", (e) => {
+  if (e.target === overlay) {
+    closePopup();
+  }
+});
